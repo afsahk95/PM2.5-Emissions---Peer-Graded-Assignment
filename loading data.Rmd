@@ -1,0 +1,20 @@
+library(ggplot2)
+library(RColorBrewer)
+
+#Downloading file, unzipping it
+
+dir.create("./air_pollution")
+urlzip <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2FNEI_data.zip"
+download.file(urlzip, destfile = "./air_pollution.zip" )
+unzip("./air_pollution.zip", exdir = "./air_pollution" )
+
+#Loading the data
+
+NEI <- readRDS("./air_pollution/summarySCC_PM25.rds")
+SCC <- readRDS("./air_pollution/Source_Classification_Code.rds")
+
+# Checking NEI data
+str(NEI)
+
+#Checking SCC data
+str(SCC)
